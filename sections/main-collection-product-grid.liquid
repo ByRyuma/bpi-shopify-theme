@@ -1,0 +1,14 @@
+
+<section>
+  <h1>{{ collection.title }}</h1>
+  {% for product in collection.products %}
+    <div>
+      <img src="{{ product.featured_image | image_url }}" loading="lazy">
+      <p>{{ product.title }}</p>
+      {% if product.compare_at_price > product.price %}
+        <p>-{{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price | round }}%</p>
+      {% endif %}
+      <a href="https://wa.me/573155184641?text=Hola! Estoy interesado en {{ product.title }}">Seleccionar opciones</a>
+    </div>
+  {% endfor %}
+</section>
